@@ -64,10 +64,10 @@ const App = () => (
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>
-  
   <InstallButton />
+  </QueryClientProvider>
   </>
+  
 );
 
 export default App;
