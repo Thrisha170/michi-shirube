@@ -17,3 +17,11 @@ window.addEventListener("beforeinstallprompt", (e: Event) => {
 
 /* RENDER APP */
 createRoot(document.getElementById("root")!).render(<App />);
+/* REGISTER SERVICE WORKER */
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js")
+      .then(() => console.log("SW registered"))
+      .catch(err => console.log("SW failed", err));
+  });
+}
