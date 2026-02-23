@@ -1,0 +1,234 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Michi Shirube Design System - Japanese-inspired calm study tracker */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@300;400;500;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+@layer base {
+  :root {
+    /* Warm cream background - like aged paper */
+    --background: 25 50% 97%;
+    --foreground: 20 15% 22%;
+
+    /* White cards with subtle warmth */
+    --card: 30 40% 99%;
+    --card-foreground: 20 15% 22%;
+
+    --popover: 30 40% 99%;
+    --popover-foreground: 20 15% 22%;
+
+    /* Torii red - warm, encouraging */
+    --primary: 0 60% 55%;
+    --primary-foreground: 30 40% 99%;
+
+    /* Soft sage green - natural, calming */
+    --secondary: 115 20% 60%;
+    --secondary-foreground: 20 15% 22%;
+
+    /* Cream muted */
+    --muted: 30 30% 94%;
+    --muted-foreground: 20 10% 50%;
+
+    /* Sakura pink accent */
+    --accent: 340 60% 82%;
+    --accent-foreground: 20 15% 22%;
+
+    /* Gentle warning */
+    --destructive: 0 50% 50%;
+    --destructive-foreground: 30 40% 99%;
+
+    --border: 30 25% 90%;
+    --input: 30 25% 90%;
+    --ring: 0 60% 55%;
+
+    --radius: 1rem;
+
+    /* Section colors */
+    --kanji: 0 60% 55%;
+    --vocabulary: 340 60% 70%;
+    --grammar: 115 25% 55%;
+    --listening: 200 60% 55%;
+    --reading: 35 70% 55%;
+
+    /* Sidebar - warm neutral */
+    --sidebar-background: 30 30% 96%;
+    --sidebar-foreground: 20 15% 30%;
+    --sidebar-primary: 0 60% 55%;
+    --sidebar-primary-foreground: 30 40% 99%;
+    --sidebar-accent: 30 40% 93%;
+    --sidebar-accent-foreground: 20 15% 22%;
+    --sidebar-border: 30 20% 88%;
+    --sidebar-ring: 0 60% 55%;
+
+    /* Custom gradients */
+    --gradient-sakura: linear-gradient(135deg, hsl(340 60% 82%) 0%, hsl(0 60% 55%) 100%);
+    --gradient-calm: linear-gradient(180deg, hsl(30 40% 99%) 0%, hsl(25 50% 97%) 100%);
+    --gradient-progress: linear-gradient(90deg, hsl(0 60% 55%) 0%, hsl(340 60% 70%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(20 15% 22% / 0.08);
+    --shadow-card: 0 2px 12px -2px hsl(20 15% 22% / 0.06);
+    --shadow-glow: 0 0 20px hsl(340 60% 82% / 0.3);
+  }
+
+  .dark {
+    --background: 20 15% 10%;
+    --foreground: 30 30% 92%;
+
+    --card: 20 15% 14%;
+    --card-foreground: 30 30% 92%;
+
+    --popover: 20 15% 14%;
+    --popover-foreground: 30 30% 92%;
+
+    --primary: 0 55% 60%;
+    --primary-foreground: 20 15% 10%;
+
+    --secondary: 115 18% 45%;
+    --secondary-foreground: 30 30% 92%;
+
+    --muted: 20 12% 20%;
+    --muted-foreground: 30 15% 60%;
+
+    --accent: 340 45% 55%;
+    --accent-foreground: 30 30% 92%;
+
+    --destructive: 0 45% 45%;
+    --destructive-foreground: 30 30% 92%;
+
+    --border: 20 12% 22%;
+    --input: 20 12% 22%;
+    --ring: 0 55% 60%;
+
+    --sidebar-background: 20 15% 12%;
+    --sidebar-foreground: 30 30% 88%;
+    --sidebar-primary: 0 55% 60%;
+    --sidebar-primary-foreground: 20 15% 10%;
+    --sidebar-accent: 20 12% 18%;
+    --sidebar-accent-foreground: 30 30% 88%;
+    --sidebar-border: 20 12% 20%;
+    --sidebar-ring: 0 55% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Noto Sans JP', 'Zen Maru Gothic', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Zen Maru Gothic', 'Noto Sans JP', sans-serif;
+  }
+}
+
+@layer components {
+  .card-hover {
+    @apply transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .glass-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/50;
+  }
+
+  .section-card {
+    @apply rounded-2xl p-6 transition-all duration-300 ease-out hover:shadow-lg hover:-translate-y-0.5;
+  }
+
+  .progress-ring {
+    @apply transition-all duration-700 ease-out;
+  }
+
+  .fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .slide-up {
+    animation: slideUp 0.5s ease-out forwards;
+  }
+
+  .pulse-soft {
+    animation: pulseSoft 3s ease-in-out infinite;
+  }
+
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .bg-gradient-sakura {
+    background: var(--gradient-sakura);
+  }
+
+  .bg-gradient-calm {
+    background: var(--gradient-calm);
+  }
+
+  .bg-gradient-progress {
+    background: var(--gradient-progress);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseSoft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
