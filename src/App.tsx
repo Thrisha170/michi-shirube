@@ -62,9 +62,9 @@ const App = () => (
           <Route path="/badges" element={<ProtectedRoute><Badges /></ProtectedRoute>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
+      <InstallButton />
       </BrowserRouter>
     </TooltipProvider>
-  <InstallButton />
   </QueryClientProvider>
   </>
   
